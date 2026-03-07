@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hệ Thống Phát Hiện Sâu Răng - Dental Cavity Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-tooth"></i>
+                    <span>Dental Cavity Detection</span>
+                </div>
+                <div class="header-info">
+                    <span class="device-info">
+                        <i class="fas fa-gpu"></i> Device: <span id="device">CPU</span>
+                    </span>
+                    <span class="model-status" id="modelStatus">
+                        <i class="fas fa-circle-notch"></i> Checking...
+                    </span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Upload Section -->
+            <section class="upload-section">
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-content">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <h2>Upload X-ray Image</h2>
+                        <p>Drag and drop your X-ray image here or click to browse</p>
+                        <input type="file" id="fileInput" accept="image/*" hidden>
+                    </div>
+                </div>
+                <button class="btn btn-primary" id="browseBtn">
+                    <i class="fas fa-folder-open"></i> Browse Files
+                </button>
+            </section>
+
+            <!-- Image Preview and Results -->
+            <section class="results-section" id="resultsSection" style="display: none;">
+                <div class="results-container">
+                    <!-- Original Image -->
+                    <div class="image-panel">
+                        <h3>Original Image</h3>
+                        <div class="image-wrapper">
+                            <img id="originalImage" src="" alt="Original X-ray">
+                        </div>
+                    </div>
+
+                    <!-- Result Image -->
+                    <div class="image-panel">
+                        <h3>Detection Result</h3>
+                        <div class="image-wrapper">
+                            <img id="resultImage" src="" alt="Detection Result">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Statistics -->
+                <div class="statistics">
+                    <div class="stat-card">
+                        <h4>Detected Cavities</h4>
+                        <p class="stat-value" id="cavityCount">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>Confidence Score</h4>
+                        <p class="stat-value" id="confidenceScore">--</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>Processing Time</h4>
+                        <p class="stat-value" id="processingTime">--</p>
+                    </div>
+                </div>
+
+                <!-- Detailed Results -->
+                <div class="details-section">
+                    <h3>Cavity Details</h3>
+                    <div id="cavityDetails" class="cavity-details"></div>
+                </div>
+            </section>
+
+            <!-- Loading Indicator -->
+            <div class="loading-overlay" id="loadingOverlay" style="display: none;">
+                <div class="spinner">
+                    <div class="spinner-circle"></div>
+                    <p>Processing X-ray image...</p>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2026 Dental Cavity Detection System. All rights reserved.</p>
+            <p>Powered by YOLO + UNet Deep Learning Models</p>
+        </footer>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div id="toast" class="toast"></div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

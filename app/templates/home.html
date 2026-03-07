@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DentalCare Pro - Hệ Thống Phân Tích X-quang Tự Động</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-tooth"></i>
+                <span>DentalCare Pro</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active">Trang Chủ</a></li>
+                <li><a href="#features" class="nav-link">Tính Năng</a></li>
+                <li><a href="#dashboard" class="nav-link">Báo Cáo</a></li>
+                <li><a href="#contact" class="nav-link">Liên Hệ</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Hệ Thống Phát Hiện Sâu Răng <br>Tự Động Bằng AI</h1>
+            <p>Công nghệ Deep Learning tiên tiến kết hợp YOLO + UNet</p>
+            <p class="subtitle">Phân tích ảnh X-quang chính xác, nhanh chóng, hiệu quả</p>
+            <a href="#dashboard" class="btn btn-primary btn-lg">
+                <i class="fas fa-play-circle"></i> Bắt Đầu Phân Tích
+            </a>
+        </div>
+        <div class="hero-image">
+            <div class="hero-icon">
+                <i class="fas fa-tooth"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2>Tính Năng Chính</h2>
+            <div class="features-grid">
+                <!-- Feature 1 -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Phát Hiện AI</h3>
+                    <p>Sử dụng YOLO để phát hiện vị trí sâu răng với độ chính xác cao</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-map"></i>
+                    </div>
+                    <h3>Phân Khúc Chi Tiết</h3>
+                    <p>UNet giúp xác định ranh giới sâu một cách chi tiết và chính xác</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Xử Lý Nhanh</h3>
+                    <p>Phân tích kết quả trong vòng vài giây, tối ưu GPU/CPU</p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Báo Cáo Chi Tiết</h3>
+                    <p>Tạo báo cáo chuyên nghiệp với hình ảnh, thống kê và khuyến cáo</p>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Bảo Mật</h3>
+                    <p>Dữ liệu bệnh nhân được bảo mật tuyệt đối</p>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Responsive</h3>
+                    <p>Hoạt động trên PC, Tablet, và Mobile</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Section -->
+    <section class="dashboard-section" id="dashboard">
+        <div class="container">
+            <h2>Bảng Điều Khiển</h2>
+            
+            <!-- Statistics Cards -->
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div class="stat-icon blue">
+                        <i class="fas fa-image"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h4>Ảnh Đã Xử Lý</h4>
+                        <p class="stat-number" id="totalImages">0</p>
+                    </div>
+                </div>
+
+                <div class="stat-box">
+                    <div class="stat-icon green">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h4>Phát Hiện Sâu</h4>
+                        <p class="stat-number" id="totalCavities">0</p>
+                    </div>
+                </div>
+
+                <div class="stat-box">
+                    <div class="stat-icon orange">
+                        <i class="fas fa-percent"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h4>Độ Chính Xác</h4>
+                        <p class="stat-number" id="accuracy">92.5%</p>
+                    </div>
+                </div>
+
+                <div class="stat-box">
+                    <div class="stat-icon red">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h4>Thời Gian TB</h4>
+                        <p class="stat-number" id="avgTime">2.3s</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Upload & Analysis Section -->
+            <div class="upload-analysis">
+                <div class="upload-area-main" id="uploadAreaMain">
+                    <div class="upload-box">
+                        <div class="upload-icon">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                        </div>
+                        <h3>Tải Lên Ảnh X-quang</h3>
+                        <p>Kéo và thả hoặc click để chọn ảnh</p>
+                        <p class="format-info">JPG, PNG, BMP (Max 50MB)</p>
+                        <input type="file" id="fileInputMain" accept="image/*" hidden>
+                    </div>
+                </div>
+
+                <button class="btn btn-primary btn-lg" id="browseBtnMain">
+                    <i class="fas fa-folder-open"></i> Chọn Ảnh
+                </button>
+                
+                <!-- Model Mode (fixed to YOLO + UNet) -->
+                <div class="model-selection" style="margin-top:18px; text-align:left;">
+                    <label style="font-weight:600; display:block; margin-bottom:6px;">Chế độ phân tích:</label>
+                    <div style="color:#555;">YOLO + UNet (Kết hợp) — hệ thống luôn chạy kết hợp để phát hiện và phân đoạn.</div>
+                    <input type="hidden" id="modelMode" value="both">
+                </div>
+            </div>
+
+            <!-- Recent Results -->
+            <div class="recent-results">
+                <h3>Kết Quả Gần Đây</h3>
+                <div class="results-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ngày Giờ</th>
+                                <th>Bệnh Nhân</th>
+                                <th>Số Sâu Phát Hiện</th>
+                                <th>Độ Tin Cậy</th>
+                                <th>Hành Động</th>
+                            </tr>
+                        </thead>
+                        <tbody id="resultsTableBody">
+                            <tr class="no-data">
+                                <td colspan="5">Chưa có kết quả. Hãy upload ảnh để bắt đầu.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Analysis Results Modal -->
+    <div class="modal" id="resultsModal">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h2>Kết Quả Phân Tích</h2>
+                <button class="close-btn" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <!-- Patient Info -->
+                <div class="patient-info">
+                    <div class="info-group">
+                        <label>Bệnh Nhân:</label>
+                        <input type="text" placeholder="Nhập tên bệnh nhân" id="patientName">
+                    </div>
+                    <div class="info-group">
+                        <label>Ngày Khám:</label>
+                        <input type="date" id="examDate">
+                    </div>
+                </div>
+
+                <!-- Image Comparison -->
+                <div class="comparison-section">
+                    <div class="comparison-item">
+                        <h4>Ảnh Gốc</h4>
+                        <img id="modalOriginalImage" src="" alt="Original">
+                    </div>
+                    <div class="comparison-item">
+                        <h4>Kết Quả Phân Tích</h4>
+                        <img id="modalResultImage" src="" alt="Result">
+                    </div>
+                </div>
+
+                <!-- Analysis Results -->
+                <div class="analysis-results">
+                    <div class="result-card">
+                        <h4><i class="fas fa-bar-chart"></i> Thống Kê Phát Hiện</h4>
+                        <div class="result-stat">
+                            <span>Số Sâu Phát Hiện:</span>
+                            <strong id="modalCavityCount">0</strong>
+                        </div>
+                        <div class="result-stat">
+                            <span>Độ Tin Cậy TB:</span>
+                            <strong id="modalAvgConfidence">0%</strong>
+                        </div>
+                        <div class="result-stat">
+                            <span>Thời Gian Xử Lý:</span>
+                            <strong id="modalProcessingTime">0ms</strong>
+                        </div>
+                    </div>
+
+                    <!-- Cavity Details -->
+                    <div class="result-card">
+                        <h4><i class="fas fa-list"></i> Chi Tiết Các Sâu Phát Hiện</h4>
+                        <div id="cavityDetailsList" class="cavity-list"></div>
+                    </div>
+                </div>
+
+                <!-- Recommendations -->
+                <div class="recommendations">
+                    <h4><i class="fas fa-lightbulb"></i> Khuyến Cáo</h4>
+                    <ul class="rec-list">
+                        <li>Thực hiện kiểm tra và điều trị sâu rangẩn sớm</li>
+                        <li>Vệ sinh răng miệng sạch sẽ hàng ngày</li>
+                        <li>Hạn chế thực phẩm chứa nhiều đường</li>
+                        <li>Tái khám định kỳ 3-6 tháng</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="printReportBtn">
+                    <i class="fas fa-print"></i> In Báo Cáo
+                </button>
+                <button class="btn btn-primary" id="downloadReportBtn">
+                    <i class="fas fa-download"></i> Tải Báo Cáo
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay" style="display: none;">
+        <div class="spinner">
+            <div class="spinner-circle"></div>
+            <p>Đang phân tích X-quang...</p>
+            <p class="spinner-subtitle">Vui lòng chờ đợi</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>DentalCare Pro</h4>
+                    <p>Hệ thống phát hiện sâu răng tự động sử dụng AI</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Liên Kết</h4>
+                    <ul>
+                        <li><a href="#home">Trang Chủ</a></li>
+                        <li><a href="#features">Tính Năng</a></li>
+                        <li><a href="#dashboard">Báo Cáo</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Hỗ Trợ</h4>
+                    <p>Email: support@dentalcare.vn</p>
+                    <p>Phone: (84) 123-456-789</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 DentalCare Pro. Mọi quyền được bảo lưu.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast -->
+    <div id="toast" class="toast"></div>
+
+    <script src="{{ url_for('static', filename='js/home.js') }}"></script>
+</body>
+</html>

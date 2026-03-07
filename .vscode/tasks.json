@@ -1,0 +1,36 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Install Dependencies",
+            "type": "shell",
+            "command": "pip",
+            "args": ["install", "-r", "requirements.txt"],
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "Train UNet",
+            "type": "shell",
+            "command": "python",
+            "args": ["-m", "src.training"],
+            "problemMatcher": [],
+            "group": {
+                "kind": "build"
+            }
+        },
+        {
+            "label": "Run Inference",
+            "type": "shell",
+            "command": "python",
+            "args": ["-c", "from src.inference import batch_inference; batch_inference('data/test', 'models/yolo_weights.pt', 'models/unet_weights.pt')"],
+            "problemMatcher": [],
+            "group": {
+                "kind": "test"
+            }
+        }
+    ]
+}
